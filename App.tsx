@@ -53,7 +53,7 @@ const linking: LinkingOptions = {
 };
 
 type RootStackParamList = {
-  Home: {id?: undefined};
+  Home: undefined;
   Profile: {id: string; name: string};
 };
 
@@ -66,12 +66,10 @@ function HomeScreen({
   navigation,
   route,
 }: StackScreenProps<RootStackParamList, 'Home'>) {
-  const id = route.params?.id;
   const linkTo = useLinkTo();
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Text>Home Screen</Text>
-      {id && <Text>Id is {id}</Text>}
       <Button
         title="Go to Tanaka's Profile"
         onPress={() => linkTo('/base/user/tanaka/22')}
